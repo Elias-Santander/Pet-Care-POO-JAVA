@@ -1,0 +1,137 @@
+🐾 Pet Management System (Java Console Application)
+
+Sistema de gestión de mascotas desarrollado en Java como aplicación de consola.
+Permite registrar mascotas, programar citas y guardar la información en archivo, aplicando validaciones y buenas prácticas de programación orientada a objetos.
+
+📌 Características
+
+✅ Registro de mascotas con validaciones
+✅ Programación de citas con fecha y hora
+✅ Validación de datos de entrada
+✅ Persistencia en archivo de texto
+✅ Manejo de excepciones
+✅ Uso de LocalDateTime para fechas
+✅ Documentación con Javadoc
+
+🏗 Estructura del Proyecto
+📦 pet-management-system
+┗ 📁 src
+    ┣ 📄 Main.java
+    ┣ 📄 Pet.java
+    ┣ 📄 Appointment.java
+ ┗ 📄 pets.ser (se genera automáticamente)
+ ┗ 📄 appointments.ser (se genera automáticamente)
+
+📚 Descripción de Clases:
+
+1️⃣ Pet.java
+
+Representa una mascota dentro del sistema.
+Atributos:
+- id
+- name
+- type
+- age
+- ownerName
+- ownerContact
+
+Validaciones implementadas:
+- ID único (verificado en Main)
+- Edad debe ser número entero positivo
+- Contacto del dueño validado con expresión regular
+- Campos obligatorios no vacíos
+
+2️⃣ Appointment.java
+
+Representa una cita asociada a una mascota.
+Atributos:
+- appointmentType
+- appointmentDateTime (LocalDateTime)
+- appointmentNotes
+Validaciones implementadas:
+- Tipo permitido: Veterinary, Vaccination o Grooming
+- Fecha debe ser futura
+- Uso de DateTimeFormatter para mostrar formato amigable
+
+3️⃣ Main.java
+
+Clase principal que:
+- Muestra el menú
+- Procesa entrada de usuario
+- Gestiona registro de mascotas
+- Programa citas
+- Guarda datos en archivo
+- Maneja excepciones
+
+🕒 Manejo de Fecha y Hora
+Se utiliza:
+LocalDateTime
+Para formatear:
+DateTimeFormatter
+Formato utilizado:
+yyyy-MM-dd HH:mm
+Ejemplo:
+2026-03-15 10:30
+
+💾 Persistencia de Datos
+Los datos se guardan los archivos:
+pets.ser
+appointments.ser
+
+✔ Implementación segura:
+Solo guarda si la colección no está vacía
+Manejo completo de excepciones (IOException)
+Uso de BufferedWriter
+Mensajes claros al usuario
+
+🛡 Validaciones Implementadas
+- Registro de Mascotas
+- ID no puede repetirse (petMap.containsKey(id))
+- Edad debe ser número entero válido
+- Contacto del dueño validado con regex
+- Campos obligatorios no pueden estar vacíos
+- Programación de Citas
+- Mascota debe existir
+- Tipo de cita válido
+- Fecha debe ser futura
+- Manejo de errores de formato de fecha
+
+▶️ Ejecución del Programa
+
+Al ejecutar:
+
+=== PET MANAGEMENT SYSTEM ===
+1. Register Pet
+2. Schedule Appointment
+3. Display Records
+4. Save and Exit
+Choose option:
+
+El sistema permite interactuar mediante consola.
+
+🧠 Decisiones de Diseño
+- Uso de HashMap<String, Pet> para acceso rápido por ID
+- Validaciones centralizadas en constructores
+- Manejo de excepciones controlado
+- Separación clara de responsabilidades
+
+🛠 Tecnologías Utilizadas
+- Java 17+
+- Programación Orientada a Objetos
+- Colecciones (HashMap)
+- LocalDateTime
+- DateTimeFormatter
+- Manejo de archivos (java.io)
+
+🚀 Posibles Mejoras Futuras
+- Interfaz gráfica (JavaFX o Swing)
+- Base de datos (MySQL / PostgreSQL)
+- API REST con Spring Boot
+- Persistencia en JSON
+- Tests unitarios con JUnit
+
+👨‍💻 Autor
+
+Elias Santander
+Software Engineer | Backend Developer | Data Analyst | Machine Learning Enthusiast
+Desarrollado como proyecto académico aplicando buenas prácticas de desarrollo en Java.
